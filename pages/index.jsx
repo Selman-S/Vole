@@ -46,6 +46,9 @@ export default function Home() {
 
   useEffect(() => {
     setFilteredMyCards(myCards)
+    getBudget()
+    getMyCards()
+    getMarketData()
   }, [myCards])
 
   const getBudget = async () => {

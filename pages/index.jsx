@@ -44,6 +44,51 @@ export default function Home() {
     }
   }
 
+  
+  const getBudget = async () => {
+    try {
+      let data = await axios.get('http://challenge.vole.io/budget')
+      
+      setBudget(data.data.budget)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+  const getMyCards = async () => {
+    try {
+      let data = await axios.get('http://challenge.vole.io/cards/mycards')
+      
+      setMyCards(data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+ 
+
+  
+  const filterMyCards = (key, value) => {
+    let filteredCards = myCards.filter(card => card[key] === value)
+    
+    setFilteredMyCards(filteredCards)
+  }
+  
+  const HandlePriceGhange = value => {
+    setPriceChange(value)
+    setFilteredMyCards(myCards.filter(card => card.price <= value))
+  }
+  
+  const handleSell = showSell => {
+  
+    setFilteredMyCards(
+      filteredMyCards.filter(card => card.id !== showSell.cardId)
+      )
+      setShowDetail({ ...showDetail, show: false, type:'type' })
+      setShowSell({ ...showSell, show: false })
+      setBudget(budget + showSell.price)
+  }
+
   useEffect(() => {
     setFilteredMyCards(myCards)
     getBudget()
@@ -51,55 +96,6 @@ export default function Home() {
     getMarketData()
   }, [myCards])
 
-  const getBudget = async () => {
-    try {
-      let data = await axios.get('http://challenge.vole.io/budget')
-
-      setBudget(data.data.budget)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const getMyCards = async () => {
-    try {
-      let data = await axios.get('http://challenge.vole.io/cards/mycards')
-
-      setMyCards(data.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(() => {
-    getMarketData()
-    getBudget()
-    getMyCards()
-    setFilteredMyCards(myCards)
-  }, [])
-
-  console.log(showBuy)
-
-  const filterMyCards = (key, value) => {
-    let filteredCards = myCards.filter(card => card[key] === value)
-
-    setFilteredMyCards(filteredCards)
-  }
-
-  const HandlePriceGhange = value => {
-    setPriceChange(value)
-    setFilteredMyCards(myCards.filter(card => card.price <= value))
-  }
-
-  const handleSell = showSell => {
-    console.log(showSell)
-    setFilteredMyCards(
-      filteredMyCards.filter(card => card.id !== showSell.cardId)
-    )
-    setShowDetail({ ...showDetail, show: false, type:'type' })
-    setShowSell({ ...showSell, show: false })
-    setBudget(budget + showSell.price)
-  }
   const handleBuy = showBuy => {
     if (budget < showBuy.price) {
       setShowBuy({ ...showBuy, show: false })
@@ -115,18 +111,18 @@ export default function Home() {
   const getDetail = async id => {
     try {
       let data = await axios.get(`http://challenge.vole.io/cards/${id}`)
-
+      
       setDetailData(data.data)
     } catch (error) {
       console.log(error)
     }
   }
-
+  
   const handleDetail = (showDetail,type) => {
     getDetail(showDetail)
     setShowDetail({ ...showDetail, show: true, type:type })
   }
-  console.log(detailData)
+
   return (
     <div>
       <Header budget={budget} />
@@ -142,7 +138,7 @@ export default function Home() {
         filterMyCards={filterMyCards}
         priceChange={priceChange}
         handleDetail={handleDetail}
-      />
+        />
       <Market
         marketData={marketData}
         getMarketData={getMarketData}
@@ -150,7 +146,7 @@ export default function Home() {
         filteredMyCards={filteredMarket}
         setFilteredMyCards={setFilteredMarket}
         handleDetail={handleDetail}
-      />
+        />
 
       {showSell.show ? (
         <>
@@ -158,7 +154,7 @@ export default function Home() {
             setShowSell={setShowSell}
             handleSell={handleSell}
             showSell={showSell}
-          />
+            />
         </>
       ) : null}
       {showBuy.show ? (

@@ -22,7 +22,7 @@ module.exports = {
       'market-hr': '#E3E5E6',
       'market-text-grey': '#6C7072',
       'btn-grey': '#CDCFD0',
-      'bubble-gum': '#ff77e9',
+      'attribute': '#979C9E',
       'bermuda': '#78dcca',
       'lineer': 'linear-gradient(180deg, #A3873C 0%, #E3D294 100%)',
 

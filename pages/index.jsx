@@ -94,7 +94,7 @@ export default function Home() {
     getBudget()
     getMyCards()
     getMarketData()
-  }, [myCards])
+  }, [])
 
   const handleBuy = showBuy => {
     if (budget < showBuy.price) {

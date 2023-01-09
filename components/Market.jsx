@@ -23,7 +23,7 @@ const Market = ({
   for (let i = 1; i <= Math.ceil(filteredMyCards.length / 10); i++) {
     pageNumbers.push(i)
   }
-  console.log(pageNumbers)
+
 
   useEffect(() => {
     setFilteredMyCards(marketData)
@@ -52,7 +52,7 @@ const Market = ({
     setCurrentPage(pageNumber)
   }
 
-  console.log(filteredMyCards)
+
   return (
     <section id="market" className=" bg-market-grey my-[122px] mx-10 p-6 ">
       <h1

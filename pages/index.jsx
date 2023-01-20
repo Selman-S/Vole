@@ -10,18 +10,21 @@ import DontEnoughModal from '../components/DontEnoughModal'
 import ShowBuyModal from '../components/ShowBuyModal'
 import ShowSellModal from '../components/ShowSellModal'
 import ShowDetailModal from '../components/ShowDetailModal'
+// import { marketData } from '../helper/data'
+// import { budget } from '../helper/data'
+// import {myCards} from '../helper/data'
 
 export default function Home() {
   const [marketData, setMarketData] = useState([])
   const [budget, setBudget] = useState(0)
   const [myCards, setMyCards] = useState([])
-  const [priceChange, setPriceChange] = useState(50)
+  const [priceChange, setPriceChange] = useState(100)
   const [filteredMarket, setFilteredMarket] = useState([])
-
+  const [cardLoading, setCardLoading] = useState(true)
   const [showSell, setShowSell] = useState({ show: false, price: 0, cardId: 0 })
   const [showBuy, setShowBuy] = useState({
     show: false,
-    price: 0,
+    price: 100,
     cardId: 0,
     card: {},
   })
@@ -33,7 +36,7 @@ export default function Home() {
     card: {},
   })
   const [detailData, setDetailData] = useState({})
-  const [filteredMyCards, setFilteredMyCards] = useState()
+  const [filteredMyCards, setFilteredMyCards] = useState(myCards)
 
   const getMarketData = async () => {
     try {
@@ -60,6 +63,8 @@ export default function Home() {
       let data = await axios.get('http://challenge.vole.io/cards/mycards')
 
       setMyCards(data.data)
+      setFilteredMyCards(data.data)
+      setCardLoading(false)
     } catch (error) {
       console.log(error)
     }
@@ -134,6 +139,8 @@ export default function Home() {
         filterMyCards={filterMyCards}
         priceChange={priceChange}
         handleDetail={handleDetail}
+        cardLoading={cardLoading}
+
       />
       <Market
         marketData={marketData}

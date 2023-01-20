@@ -11,10 +11,13 @@ const MyCards = ({
   filterMyCards,
   priceChange,
   handleDetail,
+
+
 }) => {
   const [openType, setOpenType] = useState(true)
   const [openPos, setOpenPos] = useState(true)
   const [openPrice, setOpenPrice] = useState(true)
+  
 
   const toggleType = () => {
     setOpenType(!openType)
@@ -26,6 +29,9 @@ const MyCards = ({
     setOpenPrice(!openPrice)
   }
 
+
+
+  
   return (
     <section id="mycards" className=" bg-market-grey my-[122px] mx-10 p-6 ">
       <h1 className="font-bold text-[18px] leading-[30px] cursor-pointer">
@@ -122,7 +128,7 @@ const MyCards = ({
                 <span>
                   (
                   {
-                    myCards?.filter(card => card.position === 'Goalkeeper')
+                    myCards.filter(card => card.position === 'Goalkeeper')
                       .length
                   }
                   )
@@ -225,7 +231,7 @@ const MyCards = ({
                 height={286}
                 src={card.photoUrl}
                 alt={card.name}
-                onClick={()=>handleDetail(card.id , 'Sell')}
+                onClick={() => handleDetail(card.id, 'Sell')}
               />
               <div className="flex justify-between px-4 py-2 items-center">
                 <p className=" font-bold leading-6">€ {card.price}.00</p>

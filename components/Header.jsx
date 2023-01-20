@@ -9,7 +9,7 @@ const handleScroll = (e)=>{
   const marketHeight = document.getElementById('market').offsetTop;
   const myCardsHeight = document.getElementById('mycards').offsetTop;
 
-console.log(marketHeight, myCardsHeight);
+
     if(e === 'mycards'){
      window.scrollTo({
         top:myCardsHeight-150,
@@ -29,29 +29,29 @@ document.querySelector('.nav-link-market').classList.remove('active')
 
 
   return (
-    <header className="z-[1000] fixed top-0 h-[122px] bg-black text-white w-full flex items-center px-16 flex justify-between">
+    <header className="z-[1000] fixed top-0  h-[60px] md:h-[122px] bg-black text-white w-full flex items-center md:px-16 px-2 justify-between">
       <div className="flex ">
         <div className="nav-logo-con">
-          <div className="nav-logo">
+          <div className="nav-logo w-16 md:w-auto">
             <Image src={fefcLogo} className="" alt="logo" />
           </div>
           <div className="nav-logo-text"></div>
         </div>
-        <ul className="text-white flex ml-24 gap-16 items-center">
-          <li className="nav-link nav-link-cards  active whitespace-nowrap" onClick={()=>handleScroll('mycards')}>
+        <ul className="text-white flex md:ml-24 ml-8 md:gap-16 gap-4 items-center">
+          <li className="nav-link nav-link-cards md:text-lg text-sm  active whitespace-nowrap" onClick={()=>handleScroll('mycards')}>
             MY CARDS <div></div>
           </li>
-          <li className="nav-link nav-link-market " onClick={()=>handleScroll('market')} >
+          <li className="nav-link nav-link-market md:text-lg text-sm" onClick={()=>handleScroll('market')} >
             MARKET<div></div>
           </li>
         </ul>
       </div>
       <div className="nav-budget">
         <div className="rounded-lg flex">
-          <div className="nav-budget-logo bg-red w-12 h-12 p-3 rounded-lg rounded-r-none">
-            <Image src={budgetIcon} className="w-6 h-6" alt="Budget icon" />
+          <div className="nav-budget-logo bg-red md:w-12 w-6 md:h-12 h-6 md:p-3 p-[6px] rounded-lg rounded-r-none">
+            <Image src={budgetIcon} className="md:w-6 w-3  md:h-6 h-3" alt="Budget icon" />
           </div>
-          <div className="nav-budget-text w-[132px] bg-grey rounded-lg rounded-l-none flex items-center justify-center font-bold text-2xl leading-8">
+          <div className="nav-budget-text md:w-[132px] w-[66px] bg-grey rounded-lg rounded-l-none flex items-center justify-center font-semibold md:text-2xl text-sm md:leading-8 leading-4">
             <span>€ {budget}.00</span>
           </div>
         </div>

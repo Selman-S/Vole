@@ -11,6 +11,7 @@ const MyCards = ({
   filterMyCards,
   priceChange,
   handleDetail,
+  setFilteredMyCards
 
 
 }) => {
@@ -33,20 +34,20 @@ const MyCards = ({
 
   
   return (
-    <section id="mycards" className=" bg-market-grey my-[122px] mx-10 p-6 ">
-      <h1 className="font-bold text-[18px] leading-[30px] cursor-pointer">
+    <section id="mycards" className=" bg-market-grey md:my-[122px] my-[32px] md:mx-10 mx-4 md:p-6 p-2 ">
+      <h1 className="font-bold md:text-[18px] text-base md:leading-[30px] cursor-pointer" onClick={()=>setFilteredMyCards(myCards)}>
         MY CARDS
       </h1>
-      <div className="flex">
-        <div className="bg-white w-[200px] p-6 rounded-lg mt-6">
+      <div className="md:flex max-h-fit">
+        <div className="bg-white md:w-[200px] md:block grid grid-cols-3 md:p-6 p-2 rounded-lg md:mt-6 mt-2">
           <div
             className={
               openType
-                ? 'border-b border-market-hr pb-4'
+                ? 'border-b border-market-hr md:pb-4 pb-2'
                 : 'border-b border-market-hr pb-4 overflow-hidden h-10'
             }
           >
-            <div className="flex justify-between leading-6  ">
+            <div className="flex justify-between leading-6 md:mr-0  mr-4 ">
               <p>Card Type</p>
               {openType ? (
                 <Image
@@ -97,11 +98,11 @@ const MyCards = ({
           <div
             className={
               openPos
-                ? ' mt-4 border-b border-market-hr pb-4'
-                : ' mt-4 border-b border-market-hr pb-4 overflow-hidden h-10'
+                ? ' md:mt-4 border-b border-market-hr  md:pb-4 pb-2'
+                : ' md:mt-4 border-b border-market-hr pb-4 overflow-hidden h-10'
             }
           >
-            <div className="flex justify-between leading-6  ">
+            <div className="flex justify-between leading-6  md:mr-0  mr-4  ">
               <p>Position</p>
               {openPos ? (
                 <Image
@@ -171,8 +172,8 @@ const MyCards = ({
               </p>
             </div>
           </div>
-          <div className={openPrice ? 'mt-4' : 'mt-4 overflow-hidden h-10'}>
-            <div className="flex justify-between leading-6  ">
+          <div className={openPrice ? 'md:mt-4 md:border-b-0 border-b border-market-hr' : 'md:mt-4 overflow-hidden  md:border-b-0 h-10 border-b border-market-hr'}>
+            <div className="flex justify-between leading-6   md:mr-0  mr-4 ">
               <p>Price</p>
               {openPrice ? (
                 <Image
@@ -191,7 +192,7 @@ const MyCards = ({
               )}
             </div>
 
-            <div className="text-market-text-grey mt-4">
+            <div className="text-market-text-grey mt-4 px-2 md:px-0">
               <div className="flex justify-between">
                 <label
                   className="text-xs font-bold leading-4 text-red"
@@ -213,17 +214,17 @@ const MyCards = ({
                 max="100"
                 value={priceChange}
                 onChange={e => HandlePriceGhange(e.target.value)}
-                className="w-full bg-red h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                className="w-full  bg-red h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                 step="1"
               />
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-5">
+        <div className="sm:flex  sm:flex-wrap pb-6 md:pb-0">
           {filteredMyCards?.map(card => (
             <div
               key={card.name}
-              className="bg-white rounded-lg mt-6 ml-6 h-[346px] "
+              className="bg-white rounded-lg flex flex-col items-center mt-6 md:ml-6 mx-4 md:mx-0 md:h-[346px] h-[380px] "
             >
               <Image
                 className="cursor-pointer"
@@ -233,7 +234,7 @@ const MyCards = ({
                 alt={card.name}
                 onClick={() => handleDetail(card.id, 'Sell')}
               />
-              <div className="flex justify-between px-4 py-2 items-center">
+              <div className="flex w-full md:justify-between justify-around px-4  py-2 items-center md:mt-0 mt-4">
                 <p className=" font-bold leading-6">€ {card.price}.00</p>
                 <button
                   className="border hover:bg-red hover:text-white px-6 py-1 text-red font-semibold border-red rounded-lg"

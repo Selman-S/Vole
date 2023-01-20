@@ -54,14 +54,14 @@ const Market = ({
 
 
   return (
-    <section id="market" className=" bg-market-grey my-[122px] mx-10 p-6 ">
+    <section id="market" className=" bg-market-grey md:my-[122px] my-[32px] md:mx-10 mx-4 md:p-6 p-4 ">
       <h1
         className="font-bold text-[18px] leading-[30px] cursor-pointer"
         onClick={() => setFilteredMyCards(marketData)}
       >
         MARKET
       </h1>
-      <div className="flex">
+      <div className="md:flex">
         <div className="bg-white min-w-[200px] p-6 rounded-lg mt-6 max-h-[450px]">
           <div
             className={
@@ -255,7 +255,7 @@ const Market = ({
           </div>
         </div>
         <div>
-          <div className="grid grid-cols-5">
+          <div className="grid md:grid-cols-5">
             {filteredMyCards?.map((card, i) => {
               const start = (currentPage - 1) * 10
               const end = start + 10

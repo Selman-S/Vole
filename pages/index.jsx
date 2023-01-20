@@ -141,6 +141,7 @@ export default function Home() {
         priceChange={priceChange}
         handleDetail={handleDetail}
         cardLoading={cardLoading}
+        setFilteredMyCards={setFilteredMyCards}
       />
       <Market
         marketData={marketData}

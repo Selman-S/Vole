@@ -12,7 +12,7 @@ import ShowSellModal from '../components/ShowSellModal'
 import ShowDetailModal from '../components/ShowDetailModal'
 import { marketData1 } from '../helper/data'
 import { budget1 } from '../helper/data'
-import {myCards1} from '../helper/data'
+import { myCards1 } from '../helper/data'
 
 export default function Home() {
   const [marketData, setMarketData] = useState(marketData1)
@@ -111,9 +111,10 @@ export default function Home() {
   }
   const getDetail = async id => {
     try {
-      let data = await axios.get(`http://challenge.vole.io/cards/${id}`)
+      // let data = await axios.get(`http://challenge.vole.io/cards/${id}`)
 
-      setDetailData(data.data)
+      // setDetailData(data.data)
+      setDetailData(marketData.filter(el => el.id == id)[0])
     } catch (error) {
       console.log(error)
     }
@@ -140,7 +141,6 @@ export default function Home() {
         priceChange={priceChange}
         handleDetail={handleDetail}
         cardLoading={cardLoading}
-
       />
       <Market
         marketData={marketData}

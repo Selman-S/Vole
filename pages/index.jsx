@@ -10,14 +10,14 @@ import DontEnoughModal from '../components/DontEnoughModal'
 import ShowBuyModal from '../components/ShowBuyModal'
 import ShowSellModal from '../components/ShowSellModal'
 import ShowDetailModal from '../components/ShowDetailModal'
-// import { marketData } from '../helper/data'
-// import { budget } from '../helper/data'
-// import {myCards} from '../helper/data'
+import { marketData1 } from '../helper/data'
+import { budget1 } from '../helper/data'
+import {myCards1} from '../helper/data'
 
 export default function Home() {
-  const [marketData, setMarketData] = useState([])
-  const [budget, setBudget] = useState(0)
-  const [myCards, setMyCards] = useState([])
+  const [marketData, setMarketData] = useState(marketData1)
+  const [budget, setBudget] = useState(budget1)
+  const [myCards, setMyCards] = useState(myCards1)
   const [priceChange, setPriceChange] = useState(100)
   const [filteredMarket, setFilteredMarket] = useState([])
   const [cardLoading, setCardLoading] = useState(true)
@@ -72,9 +72,9 @@ export default function Home() {
 
   useEffect(() => {
     setFilteredMyCards(myCards)
-    getBudget()
-    getMyCards()
-    getMarketData()
+    // getBudget()
+    // getMyCards()
+    // getMarketData()
   }, [])
 
   const filterMyCards = (key, value) => {

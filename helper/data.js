@@ -1,4 +1,4 @@
-export const marketData = [
+export const marketData1 = [
   {
     id: '0',
     name: 'BEYREUTHER',
@@ -612,8 +612,8 @@ export const marketData = [
     },
   },
 ]
-export const budget = 100
-export const myCards = [
+export const budget1 = 100
+export const myCards1 = [
   {
   "id": "8",
   "name": "SOTONA",

@@ -234,7 +234,7 @@ const MyCards = ({
                 height={286}
                 src={card.photoUrl}
                 alt={card.name}
-                onClick={() => handleDetail(card.id,'Buy')}
+                onClick={() => handleDetail(card.id,'Sell')}
               />
               <div className="flex w-full md:justify-between justify-around px-4  py-2 items-center md:mt-0 mt-4">
                 <p className=" font-bold leading-6">€ {card.price}.00</p>

@@ -114,6 +114,12 @@ export default function Home() {
       // let data = await axios.get(`http://challenge.vole.io/cards/${id}`)
 
       // setDetailData(data.data)
+      if(id==8|| id==14||id==24){
+        setDetailData(myCards.filter(el => el.id == id)[0])
+   
+        setShowDetail({ ...detailData, show: true, type: type })
+
+      }
       setDetailData(marketData.filter(el => el.id == id)[0])
     } catch (error) {
       console.log(error)
@@ -121,9 +127,11 @@ export default function Home() {
   }
 
   const handleDetail = (showDetail, type) => {
+
     getDetail(showDetail)
-    setShowDetail({ ...showDetail, show: true, type: type })
+    setShowDetail({ ...detailData, show: true, type: type })
   }
+
 
   return (
     <div>

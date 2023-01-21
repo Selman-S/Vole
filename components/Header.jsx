@@ -1,32 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import fefcLogo from '../public/images/logo.svg'
 import budgetIcon from '../public/images/vole_wallet.png'
 
 const Header = ({budget} ) => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  if (typeof window !== "undefined") {
+    // browser code
+    var marketHeight = document.getElementById('market').offsetTop;
+    var myCardsHeight = document.getElementById('mycards').offsetTop;
+  }
   
 const handleScroll = (e)=>{
-  const marketHeight = document.getElementById('market').offsetTop;
-  const myCardsHeight = document.getElementById('mycards').offsetTop;
 
-
-    if(e === 'mycards'){
-     window.scrollTo({
-        top:myCardsHeight-150,
+  if(e === 'mycards'){
+    window.scrollTo({
+      top:myCardsHeight-150,
         behavior:'smooth'
-     })
-document.querySelector('.nav-link-cards').classList.add('active')
-document.querySelector('.nav-link-market').classList.remove('active')
+      })
+      document.querySelector('.nav-link-cards').classList.add('active')
+      document.querySelector('.nav-link-market').classList.remove('active')
     }else if(e === 'market'){
       window.scrollTo({
         top:marketHeight-150,
         behavior:'smooth'
-     })
+      })
       document.querySelector('.nav-link-market').classList.add('active')
       document.querySelector('.nav-link-cards').classList.remove('active')
     }
+  }
+
+
+if (marketHeight-150 <= scrollPosition){
+  document.querySelector('.nav-link-market').classList.add('active')
+  document.querySelector('.nav-link-cards').classList.remove('active')
+}
+if (marketHeight-150> scrollPosition){
+  document.querySelector('.nav-link-cards').classList.add('active')
+  document.querySelector('.nav-link-market').classList.remove('active')
 }
 
+const handleScrolla = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+};
+
+
+useEffect(() => {
+    window.addEventListener('scroll', handleScrolla, { passive: true });
+
+    return () => {
+        window.removeEventListener('scroll', handleScrolla);
+    };
+}, []);
 
   return (
     <header className="z-[1000] fixed top-0  h-[60px] md:h-[122px] bg-black text-white w-full flex items-center md:px-16 px-2 justify-between">

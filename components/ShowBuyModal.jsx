@@ -3,7 +3,7 @@ import React from 'react'
 const ShowBuyModal = ({handleBuy,setShowBuy,showBuy}) => {
   return (
     <>
-     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-[1003] outline-none focus:outline-none  ">
+     <div className=" justify-center items-center flex  overflow-x-hidden overflow-y-auto fixed inset-0 z-[1003] outline-none focus:outline-none  ">
             <div className="md:w-[399px] w-[90%] h-[239px] bg-white rounded-lg p-6 ">
               <p className="font-bold text-2xl leading-8">
                 Would you like to buy the card for

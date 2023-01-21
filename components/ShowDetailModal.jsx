@@ -6,7 +6,7 @@ const ShowDetailModal = ({detailData, showDetail,setShowDetail,setShowSell,setSh
   return (
     <>
       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-[1001] outline-none focus:outline-none  ">
-        <div className="md:w-[914px] w-[90%] md:h-[860px] h-auto bg-white rounded-lg ">
+        <div className="md:w-[914px] w-[90%] md:h-[860px] h-[90%] bg-white rounded-lg ">
           <div
             className="relative md:h-[382px]  rounded-t-lg flex justify-center items-center "
             style={{

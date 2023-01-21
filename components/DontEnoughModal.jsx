@@ -4,7 +4,7 @@ const DontEnoughModal = ({setShowDontEnough}) => {
   return (
     <>
       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-[1005] outline-none focus:outline-none  ">
-        <div className="w-[399px] h-[184px] bg-white rounded-lg p-6 ">
+        <div className="md:w-[399px] w-[90%] h-[184px] bg-white rounded-lg p-6 ">
           <p className="font-bold text-2xl leading-8">
             You dont have enough money
           </p>

@@ -11,9 +11,9 @@ const Market = ({
   setFilteredMyCards,
   handleDetail,
 }) => {
-  const [openType, setOpenType] = useState(true)
-  const [openPos, setOpenPos] = useState(true)
-  const [openPrice, setOpenPrice] = useState(true)
+  const [openType, setOpenType] = useState(false)
+  const [openPos, setOpenPos] = useState(false)
+  const [openPrice, setOpenPrice] = useState(false)
   const [priceChange, setPriceChange] = useState(50)
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -255,7 +255,7 @@ const Market = ({
           </div>
         </div>
         <div>
-          <div className="grid md:grid-cols-5">
+          <div className="sm:flex  sm:flex-wrap pb-6 md:pb-0">
             {filteredMyCards?.map((card, i) => {
               const start = (currentPage - 1) * 10
               const end = start + 10
@@ -264,7 +264,7 @@ const Market = ({
                 return (
                   <div
                     key={card.name}
-                    className="bg-white rounded-lg mt-6 ml-6 h-[346px] "
+                    className="bg-white rounded-lg flex flex-col items-center mt-6 md:ml-6 mx-4 md:mx-0 md:h-[346px] h-[380px]"
                   >
                     <Image
                       className="cursor-pointer"
@@ -274,7 +274,7 @@ const Market = ({
                       alt={card.name}
                       onClick={() => handleDetail(card.id,'Buy')}
                     />
-                    <div className="flex justify-between px-4 py-2 items-center">
+                    <div className="flex w-full md:justify-between justify-around px-4  py-2 items-center md:mt-0 mt-4">
                       <p className=" font-bold leading-6">€ {card.price}.00</p>
                       <button
                         className="border hover:bg-red hover:text-white px-6 py-1 text-red font-semibold border-red rounded-lg"

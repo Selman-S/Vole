@@ -3,6 +3,7 @@ import Image from 'next/image'
 import uparrow from '../public/images/uparrow.svg'
 import downarrow from '../public/images/downarrow.svg'
 
+
 const MyCards = ({
   myCards,
   setShowSell,
@@ -15,9 +16,10 @@ const MyCards = ({
 
 
 }) => {
-  const [openType, setOpenType] = useState(true)
-  const [openPos, setOpenPos] = useState(true)
-  const [openPrice, setOpenPrice] = useState(true)
+ 
+  const [openType, setOpenType] = useState(false)
+  const [openPos, setOpenPos] = useState(false)
+  const [openPrice, setOpenPrice] = useState(false)
   
 
   const toggleType = () => {
@@ -34,12 +36,12 @@ const MyCards = ({
 
   
   return (
-    <section id="mycards" className=" bg-market-grey md:my-[122px] my-[32px] md:mx-10 mx-4 md:p-6 p-2 ">
+    <section id="mycards" className=" bg-market-grey md:my-[122px] my-[32px] md:mx-10 mx-4 md:p-6 p-4 ">
       <h1 className="font-bold md:text-[18px] text-base md:leading-[30px] cursor-pointer" onClick={()=>setFilteredMyCards(myCards)}>
         MY CARDS
       </h1>
       <div className="md:flex max-h-fit">
-        <div className="bg-white md:w-[200px] md:block grid grid-cols-3 md:p-6 p-2 rounded-lg md:mt-6 mt-2">
+        <div className="bg-white md:w-[200px] md:block md:p-6 p-2 rounded-lg md:mt-6 mt-2">
           <div
             className={
               openType

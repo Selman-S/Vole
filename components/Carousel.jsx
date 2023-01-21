@@ -75,35 +75,59 @@ const Carousel = () => {
           <Image
             className={
               size.width > 768
-                ? ' absolute top-16 left-10 transition-all '
-                : ' absolute top-10 right-[100px] transition-all '
+                ? indicator == 0
+                  ? ' absolute top-16 left-10 transition-all '
+                  : indicator == 1
+                  ? ' absolute top-0 left-[135px] transition-all z-50'
+                  : indicator == 2 && 'absolute top-16 right-0 transition-all '
+                : indicator == 0
+                ? ' absolute top-10 right-[90px] transition-all '
+                : indicator ==1
+                ? 'absolute right-[44px] top-4 z-10 transition-all'
+                : indicator == 2 && 'absolute top-10 right-0 transition-all'
             }
-            width={size.width  > 768 ? 151 : 70}
-            height={size.width  > 768 ? 218 : 100}
+            width={size.width > 768 ? 151 : 70}
+            height={size.width > 768 ? 218 : 100}
             src="https://cdn.vole.io/share/99/2385ddcd-dda8-4a60-a6be-9eb51b172664.png"
             alt="image 1"
           />
 
           <Image
             className={
-              size.width  > 768
-                ? 'absolute left-[135px] z-10 transition-all'
-                : 'absolute right-[44px] top-4 z-10 transition-all'
+              size.width > 768
+                ? indicator == 1
+                  ? ' absolute top-16 left-10 transition-all '
+                  : indicator == 2
+                  ? ' absolute top-0 left-[135px] transition-all z-50'
+                  : indicator == 0 && 'absolute top-16 right-0 transition-all'
+                : indicator == 1
+                ? ' absolute top-10 right-[90px] transition-all '
+                : indicator == 2
+                ? 'absolute right-[44px] top-4 z-10 transition-all'
+                : indicator == 0 &&  'absolute top-10 right-0 transition-all'
             }
-            width={size.width  > 768 ? 151 : 80}
-            height={size.width  > 768 ? 218 : 100}
+            width={size.width > 768 ? 151 : 70}
+            height={size.width > 768 ? 218 : 100}
             src="https://cdn.vole.io/share/99/b0c2bb47-a888-4011-a039-a1a4c98fa707.png"
             alt="image 2"
           />
 
           <Image
             className={
-              size.width  > 768
-                ? 'absolute top-16 right-0 transition-all'
-                : 'absolute top-10 right-0 transition-all'
+              size.width > 768
+                ? indicator == 2
+                  ? ' absolute top-16 left-10 transition-all '
+                  : indicator == 0
+                  ? ' absolute top-0 left-[135px] transition-all  z-50'
+                  : indicator == 1 && 'absolute top-16 right-0 transition-all '
+                : indicator == 2
+                ? ' absolute top-10 right-[90px] transition-all '
+                : indicator == 0
+                ? 'absolute right-[44px] top-4 z-10 transition-all'
+                : indicator == 1 && 'absolute top-10 right-0 transition-all'
             }
-            width={size.width  > 768 ? 151 : 70}
-            height={size.width  > 768 ? 218 : 100}
+            width={size.width > 768 ? 151 : 70}
+            height={size.width > 768 ? 218 : 100}
             src="https://cdn.vole.io/share/99/6ba36f6f-e065-4b6f-8236-44811647969a.png"
             alt="image 3"
           />

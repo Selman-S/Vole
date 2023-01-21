@@ -109,7 +109,7 @@ export default function Home() {
     setBudget(budget - showBuy.price)
     setFilteredMyCards([...filteredMyCards, showBuy.card])
   }
-  const getDetail = async id => {
+  const getDetail = async (id,type) => {
     try {
       // let data = await axios.get(`http://challenge.vole.io/cards/${id}`)
 
@@ -127,8 +127,8 @@ export default function Home() {
   }
 
   const handleDetail = (showDetail, type) => {
-
-    getDetail(showDetail)
+console.log(showDetail , type);
+    getDetail(showDetail,type)
     setShowDetail({ ...detailData, show: true, type: type })
   }
 
